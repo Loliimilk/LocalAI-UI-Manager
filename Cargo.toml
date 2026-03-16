@@ -1,7 +1,12 @@
 [package]
-name = "pc_chacker"
+name = "pc_checker"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-sysinfo = "0.30"
+gdt-cpus = "25.5.0"
+hardware-query = { version = "0.2.0", features = ["monitoring"] }
+
+[[bin]]
+name = "pc_checker"
+path = "src/pc_checker.rs"
