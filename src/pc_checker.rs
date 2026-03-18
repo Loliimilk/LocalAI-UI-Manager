@@ -2,6 +2,32 @@ use hardware_query::{HardwarePresets, HardwareInfo};
 
 use std::process::Command;
 use std::path::PathBuf;
+
+pub struct UserSystem {
+    // RAM
+    pub ram_gb: u64,
+    // CPU
+    pub cpu_name: String,
+    pub cpu_cores: usize,
+    pub cpu_threads: usize,
+    pub has_avx2: bool,
+    pub has_fma: bool,
+    pub has_amx: bool,
+    pub cpu_ai_capable: bool,
+    // GPU
+    pub gpu_name: Option<String>,
+    pub gpu_vram_gb: Option<u64>,
+    pub has_cud: bool,
+    pub has_rocm: bool,
+    pub has_directml: bool,
+    pub has_metal: bool,
+    pub gpu_ai_capable: bool,
+    // DISK
+    pub disk_free_gb: Option<u64>,
+    //SCORE
+    pub ai_score: u32,
+}
+
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let ai_assessment = HardwarePresets::ai_assessment()?;
     let hw_info = HardwareInfo::query()?;
