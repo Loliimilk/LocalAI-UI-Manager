@@ -6,6 +6,7 @@ edition = "2024"
 [dependencies]
 gdt-cpus = "25.5.0"
 hardware-query = { version = "0.2.0", features = ["monitoring"] }
+sysinfo = "0.38.4"
 
 [[bin]]
 name = "pc_checker"
